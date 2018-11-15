@@ -97,6 +97,8 @@ public class UserController {
         return "redirect:/admin/users/all";
     }
 
+    // TODO: chyba niepotrzebne, można podawać jako parameter -1 do metody powyżej
+
     @RequestMapping("/substracttokens/{id}/{tokens}")
     private String substractTokensFromUsers (@PathVariable int tokens, @PathVariable Long id){
         User user = userRepository.findOne(id);

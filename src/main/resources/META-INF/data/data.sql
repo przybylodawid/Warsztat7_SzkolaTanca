@@ -10,8 +10,14 @@ INSERT INTO techniques (techniqueName) VALUES ('Bachata');
 INSERT INTO techniques (techniqueName) VALUES ('Kizomba');
 INSERT INTO techniques (techniqueName) VALUES ('UrbanKizz');
 INSERT INTO users (firstName, lastName, email, note, password, tokens) VALUES ('Dawid', 'Przybyło', 'dawid@dawid.pl', 'SAM ON', 'haselko', 100);
-INSERT INTO users (firstName, lastName, email, note, password, tokens) VALUES ('Admin', 'Admin', 'admin@admin.pl', 'Administrator', 'admin', 100);
+INSERT INTO users (firstName, lastName, email, note, password, tokens) VALUES ('Admin', 'Admin', 'admin@admin.pl', 'Administrator', 'WPlISVfkxHjcu4bWdKJrKuRqvdgpyaRhzatWqeolkdojOTj9g1B3e', 100);
 INSERT INTO users_roles (User_id, roles_id) VALUES (1,1), (1,2), (1,3),(2,1), (2,2);
 INSERT INTO users_techniques (User_id, techniques_id) VALUES (1,1), (1,2), (1,3), (1,5), (1,6), (1,7), (1,8), (2,1), (2,4);
-
+INSERT INTO courses (day, hour, technique_id) VALUES ('Poniedziałek', '19:00', '3');
+INSERT INTO courses (day, hour, technique_id) VALUES ('Poniedziałek', '20:00', '1');
+INSERT INTO courses (day, hour, technique_id) VALUES ('Wtorek', '19:00', '2');
+INSERT INTO courses (day, hour, technique_id) VALUES ('Wtorek', '19:00', '1');
+INSERT INTO courses (day, hour, technique_id) VALUES ('Środa', '19:00', '4');
+INSERT INTO courses (day, hour, technique_id) VALUES ('Czwartek', '19:00', '6');
+INSERT INTO courses (day, hour, technique_id) VALUES ('Piątek', '19:00', '7');
 

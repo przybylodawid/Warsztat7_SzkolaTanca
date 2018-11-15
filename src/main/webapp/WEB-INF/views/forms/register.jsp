@@ -21,6 +21,10 @@
     <form:errors path="password"/><br>
     Hasło 2:<br><form:password path="password2" /><br>
     <form:errors path="password2"/><br>
+    Imię:<br><form:password path="firstName" /><br>
+    <form:errors path="firstName"/><br>
+    Nazwisko:<br><form:password path="lastName" /><br>
+    <form:errors path="lastName"/><br>
 
     <input type="submit" value="Rejestracja">
 </form:form>

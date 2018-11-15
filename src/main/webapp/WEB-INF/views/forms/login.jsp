@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: dawid
@@ -12,6 +13,19 @@
 </head>
 <body>
 <h1>Login Form</h1>
+
+<form:form method="post" modelAttribute="loginDto">
+    <br>
+    Email:<form:input path="email" /><br>
+    <form:errors path="email"/><br>
+    Hasło:<form:password path="password" /><br>
+    <form:errors path="password"/><br>
+
+    <a href="/register">Rejestracja</a><br><br>
+
+    <input type="submit" value="Login">
+
+</form:form>
 
 </body>
 </html>

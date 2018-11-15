@@ -11,7 +11,18 @@ public class RegisterDto {
     private String password;
     @NotEmpty
     private String password2;
+    @NotEmpty
+    private String firstName;
+    @NotEmpty
+    private String lastName;
 
+    // ------------------------------------------
+    // -------------- constructors --------------
+    // ------------------------------------------
+
+    // ------------------------------------------
+    // ---------- getters and setters------------
+    // ------------------------------------------
 
     public String getPassword() {
         return password;
@@ -35,5 +46,21 @@ public class RegisterDto {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }

@@ -1,28 +1,24 @@
-package pl.coderslab.model;
+package pl.coderslab.dto;
 
-import javax.persistence.*;
-import java.time.LocalTime;
+import org.hibernate.validator.constraints.NotEmpty;
+import pl.coderslab.model.Technique;
+import pl.coderslab.model.User;
+
+import javax.validation.constraints.NotNull;
 import java.util.Set;
 
-@Entity
-@Table(name="courses")
-public class Course {
+public class CourseDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    @NotNull
     private String day;
-    private LocalTime hour;
-    @ManyToOne
+    @NotNull
+    private String hour;
+    @NotNull
     private Technique technique;
 
-    @ManyToMany
-    @Column(nullable = true)
+    @NotNull
     private Set<User> teachers;
 
-    @ManyToMany
-    @Column(nullable = true)
     private Set<User> students;
 
     // ------------------------------------------
@@ -33,13 +29,6 @@ public class Course {
     // ---------- getters and setters------------
     // ------------------------------------------
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getDay() {
         return day;
@@ -49,11 +38,11 @@ public class Course {
         this.day = day;
     }
 
-    public LocalTime getHour() {
+    public String getHour() {
         return hour;
     }
 
-    public void setHour(LocalTime hour) {
+    public void setHour(String hour) {
         this.hour = hour;
     }
 
@@ -65,11 +54,12 @@ public class Course {
         this.technique = technique;
     }
 
+    @NotNull
     public Set<User> getTeachers() {
         return teachers;
     }
 
-    public void setTeachers(Set<User> teachers) {
+    public void setTeachers(@NotNull Set<User> teachers) {
         this.teachers = teachers;
     }
 

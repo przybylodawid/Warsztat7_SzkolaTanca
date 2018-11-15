@@ -61,6 +61,8 @@ public class HomeController {
         user.setEmail(registerDto.getEmail());
         user.setTokens(0);
         user.setHashedPassword(registerDto.getPassword());
+        user.setFirstName(registerDto.getFirstName());
+        user.setLastName(registerDto.getLastName());
 
         List<Role> roles = new ArrayList<>();
         roles.add(roleRepository.findById(3L));
@@ -77,12 +79,13 @@ public class HomeController {
         return "forms/login";
     }
 
-
     @PostMapping("/login")
-    public String postLogin(@ModelAttribute LoginDto loginDto, HttpServletRequest request){
+    public String postLogin(@Valid LoginDto loginDto, HttpServletRequest request, BindingResult bindingResult){
         User user = userRepository.findUserByEmail(loginDto.getEmail());
         if (user == null){
-            return "Nie ma takiego usera w bazie danych";
+            bindingResult.addError(new FieldError("loginDto", "email", "Nie ma takiego usera w bazie danych"));
+            return "forms/login";
+
         }
 
         String userPassword = user.getPassword();
@@ -92,7 +95,10 @@ public class HomeController {
             request.getSession(true).setAttribute("loggedIn", true);
             return "OK";
         }else {
-            return "Zle haslo";
+            bindingResult.addError(new FieldError("loginDto", "email", "Błędny Email lub hasło"));
+            bindingResult.addError(new FieldError("loginDto", "password", "Błędny Email lub hasło"));
+
+            return "forms/login";
         }
 
     }
