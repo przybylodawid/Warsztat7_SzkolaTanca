@@ -9,9 +9,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <jsp:include page="/WEB-INF/views/fragments/header.jsp"/>
     <title>Title</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/fragments/menu.jsp"/>
 <h1>User Edit:</h1>
 
 <form:form action="" method="post"
@@ -48,5 +50,6 @@
 <a href="/admin/users/delete/${user.id}">
 Usuń usera ${user.firstName} ${user.lastName}
 </a>
+<jsp:include page="/WEB-INF/views/fragments/footer.jsp"/>
 </body>
 </html>

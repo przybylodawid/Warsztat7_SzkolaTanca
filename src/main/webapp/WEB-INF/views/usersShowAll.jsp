@@ -9,9 +9,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <jsp:include page="/WEB-INF/views/fragments/header.jsp"/>
     <title>All Users</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/fragments/menu.jsp"/>
 <h1>All Users</h1>
 
 <c:forEach var="user" items="${users}">
@@ -23,6 +25,6 @@
 
     <br>
 </c:forEach>
-
+<jsp:include page="/WEB-INF/views/fragments/footer.jsp"/>
 </body>
 </html>

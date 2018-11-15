@@ -32,6 +32,11 @@ public class HomeController {
     @Autowired
     private RoleRepository roleRepository;
 
+    @GetMapping("/OK")
+    public String showOK(){
+        return "OK";
+    }
+
     @GetMapping("/register")
     public String showRegistrationForm(Model model){
         model.addAttribute("registerDto", new RegisterDto());
@@ -69,8 +74,8 @@ public class HomeController {
         user.setRoles(new HashSet<>(roles));
         userRepository.save(user);
 
-        //TODO zmienić
-        return "redirect:/admin/users/all";
+
+        return "redirect:/login";
     }
 
     @GetMapping("/login")
@@ -92,8 +97,8 @@ public class HomeController {
         boolean checkpw = BCrypt.checkpw(loginDto.getPassword(), userPassword);
 
         if (checkpw) {
-            request.getSession(true).setAttribute("loggedIn", true);
-            return "OK";
+            request.getSession(true).setAttribute("user", user);
+            return "redirect:/user/home";
         }else {
             bindingResult.addError(new FieldError("loginDto", "email", "Błędny Email lub hasło"));
             bindingResult.addError(new FieldError("loginDto", "password", "Błędny Email lub hasło"));

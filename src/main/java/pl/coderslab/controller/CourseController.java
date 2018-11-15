@@ -37,7 +37,7 @@ public class CourseController {
     @RequestMapping("/all")
     public String showAllCourses(Model model){
         List<Course> courses = courseRepository.findAll();
-        model.addAttribute("courses", courses);
+        model.addAttribute("courseslist", courses);
         return "coursesShowAll";
 
     }
@@ -56,9 +56,9 @@ public class CourseController {
         Course course = new Course();
         course.setDay(courseDto.getDay());
         course.setHour(LocalTime.parse(courseDto.getHour()));
-        course.setStudents(courseDto.getStudents());
+
         course.setTechnique(courseDto.getTechnique());
-        course.setTeachers(courseDto.getTeachers());
+        course.setUsers(courseDto.getUsers());
 
         courseRepository.save(course);
 
@@ -128,8 +128,8 @@ public class CourseController {
         return techniques;
     }
     @ModelAttribute("users")
-    public List<User> getUsers(){
-        List<User> users = userRepository.findAll();
+    public Set<User> getUsers(){
+        Set<User> users = techniqueRepository.findUserByRoleName("user");
         return users;
     }
 

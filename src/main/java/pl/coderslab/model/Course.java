@@ -14,16 +14,14 @@ public class Course {
 
     private String day;
     private LocalTime hour;
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.EAGER)
     private Technique technique;
 
-    @ManyToMany
-    @Column(nullable = true)
-    private Set<User> teachers;
+    @ManyToMany (fetch = FetchType.EAGER)
+    @Column
+    private Set<User> users;
 
-    @ManyToMany
-    @Column(nullable = true)
-    private Set<User> students;
+
 
     // ------------------------------------------
     // -------------- constructors --------------
@@ -65,19 +63,11 @@ public class Course {
         this.technique = technique;
     }
 
-    public Set<User> getTeachers() {
-        return teachers;
+    public Set<User> getUsers() {
+        return users;
     }
 
-    public void setTeachers(Set<User> teachers) {
-        this.teachers = teachers;
-    }
-
-    public Set<User> getStudents() {
-        return students;
-    }
-
-    public void setStudents(Set<User> students) {
-        this.students = students;
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 }

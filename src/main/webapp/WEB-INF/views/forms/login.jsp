@@ -9,9 +9,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <jsp:include page="/WEB-INF/views/fragments/header.jsp"/>
     <title>Login</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/fragments/menu.jsp"/>
 <h1>Login Form</h1>
 
 <form:form method="post" modelAttribute="loginDto">
@@ -26,6 +28,6 @@
     <input type="submit" value="Login">
 
 </form:form>
-
+<jsp:include page="/WEB-INF/views/fragments/footer.jsp"/>
 </body>
 </html>

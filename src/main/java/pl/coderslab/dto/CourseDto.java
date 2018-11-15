@@ -17,9 +17,8 @@ public class CourseDto {
     private Technique technique;
 
     @NotNull
-    private Set<User> teachers;
+    private Set<User> users;
 
-    private Set<User> students;
 
     // ------------------------------------------
     // -------------- constructors --------------
@@ -55,19 +54,11 @@ public class CourseDto {
     }
 
     @NotNull
-    public Set<User> getTeachers() {
-        return teachers;
+    public Set<User> getUsers() {
+        return users;
     }
 
-    public void setTeachers(@NotNull Set<User> teachers) {
-        this.teachers = teachers;
-    }
-
-    public Set<User> getStudents() {
-        return students;
-    }
-
-    public void setStudents(Set<User> students) {
-        this.students = students;
+    public void setUsers(@NotNull Set<User> users) {
+        this.users = users;
     }
 }

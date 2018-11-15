@@ -9,9 +9,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <jsp:include page="/WEB-INF/views/fragments/header.jsp"/>
     <title>Course Add</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/fragments/menu.jsp"/>
 <h1>Dodaj kurs</h1>
 <form:form action="" method="post"
            modelAttribute="courseDto"><br>
@@ -23,10 +25,11 @@
 Technika:<form:select path="technique" items="${techniques}" itemLabel="techniqueName" itemValue="id"/><br>
 <form:errors path="technique"/><br>
 Wybierz Instruktorów:<br>
-    <form:checkboxes path="teachers" items="${teachers}" itemLabel="fullName" itemValue="id"/>
+    <form:checkboxes path="users" items="${teachers}" itemLabel="fullName" itemValue="id"/><br>
 Wybierz Kursantów:<br>
-    <form:checkboxes path="students" items="${users}" itemValue="id" itemLabel="fullName"/>
+    <form:checkboxes path="users" items="${users}" itemValue="id" itemLabel="fullName"/><br>
     <input type="submit" value="Zapisz">
 </form:form>
+<jsp:include page="/WEB-INF/views/fragments/footer.jsp"/>
 </body>
 </html>

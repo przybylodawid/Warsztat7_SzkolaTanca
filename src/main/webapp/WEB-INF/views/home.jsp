@@ -8,9 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>$Title$</title>
+    <jsp:include page="/WEB-INF/views/fragments/header.jsp"/>
+    <title>Home</title>
 </head>
 <body>
-$END$
+<jsp:include page="/WEB-INF/views/fragments/menu.jsp"/>
+
+
+<jsp:include page="/WEB-INF/views/fragments/footer.jsp"/>
 </body>
 </html>
