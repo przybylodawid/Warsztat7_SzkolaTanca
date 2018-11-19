@@ -5,12 +5,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import pl.coderslab.Helper;
 import pl.coderslab.dto.TechniqueDto;
 import pl.coderslab.model.Technique;
 import pl.coderslab.model.User;
 import pl.coderslab.repositories.TechniqueRepository;
 import pl.coderslab.repositories.UserRepository;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Set;
@@ -41,7 +43,6 @@ public class TechniqueController {
         technique.setTechniqueName(techniqueDto.getTechniqueName());
         techniqueRepository.save(technique);
 
-        // TODO gdzie przekierować??
     return "redirect:/admin/techniques/all";
     }
 
@@ -80,5 +81,16 @@ public class TechniqueController {
 
         return "redirect:/admin/techniques/all";
     }
+
+    @ModelAttribute("user")
+    public User getUser(HttpServletRequest request){
+        return Helper.getUserFromSession(request);
+    }
+
+    @ModelAttribute("isAdmin")
+    public boolean checkIfAdmin(HttpServletRequest request){
+        return Helper.checkIfAdmin(request);
+    }
+
 
 }

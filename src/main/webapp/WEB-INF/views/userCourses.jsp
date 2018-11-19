@@ -10,18 +10,17 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/views/fragments/header.jsp"/>
-    <title>Title</title>
+    <title>Moje kursy</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/fragments/menu.jsp"/>
-<h1>All Courses for user m</h1>
-Kursy na które uczęszczam:<br>
+<h2>Kursy na które uczęszczam:</h2>
 <c:forEach var="course" items="${coursesin}">
-    <a href="/admin/courses/edit/${course.id}">${course.technique.techniqueName} - ${course.day} ${course.hour}</a> <a href="/user/signmeout/${course.id}" title="Wypisz mnie z tego kursu">Wypisz</a> Powiadom o mojej nieobecności<br>
+    <a class="badge badge-primary" href="/admin/courses/edit/${course.id}">${course.technique.techniqueName} - ${course.day} ${course.hour}</a> <a class="badge badge-danger" href="/user/signmeout/${course.id}" title="Wypisz mnie z tego kursu">Wypisz</a> <a class="badge badge-info" href="#" title="Powiadom o mojej nieobecności">NIEOBECNOŚĆ</a><br>
 </c:forEach>
-<br>Pozostałe kursy:<br>
+<h2>Pozostałe kursy:</h2>
 <c:forEach var="course" items="${coursesnotin}">
-    <a href="/admin/courses/edit/${course.id}">${course.technique.techniqueName} - ${course.day} ${course.hour}</a> <a href="/user/signmein/${course.id}" title="Zapisz mnie na ten kurs">Zapisz</a><br>
+    <a class="badge badge-primary" href="/admin/courses/edit/${course.id}">${course.technique.techniqueName} - ${course.day} ${course.hour}</a> <a  class="badge badge-success" href="/user/signmein/${course.id}" title="Zapisz mnie na ten kurs">Zapisz</a><br>
 </c:forEach>
 <jsp:include page="/WEB-INF/views/fragments/footer.jsp"/>
 </body>

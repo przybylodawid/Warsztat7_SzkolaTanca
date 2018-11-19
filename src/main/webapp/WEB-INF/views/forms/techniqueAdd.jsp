@@ -18,10 +18,14 @@
 
 <form:form action="" method="post"
            modelAttribute="techniqueDto"><br>
-    Dodaj styl tańca: <br>
-    <form:input path="techniqueName" /><br>
-    <form:errors path="techniqueName"/><br>
-    <input type="submit" value="Dodaj">
+    <div class="form-group">
+        <label >Dodaj Technike</label>
+        <form:input path="techniqueName" class="form-control" id="exampleInputEmail1"/>
+        <form:errors path="techniqueName"/>
+    </div>
+
+
+    <input class="btn btn-primary" type="submit" value="Dodaj"><br>
 </form:form>
 <jsp:include page="/WEB-INF/views/fragments/footer.jsp"/>
 </body>

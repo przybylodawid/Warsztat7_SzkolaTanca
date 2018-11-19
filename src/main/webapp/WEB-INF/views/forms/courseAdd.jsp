@@ -17,18 +17,21 @@
 <h1>Dodaj kurs</h1>
 <form:form action="" method="post"
            modelAttribute="courseDto"><br>
-    Dzień:<form:select path="day" items="${days}"/><br>
+
+    Dzień:<form:select class="form-control selectpicker" path="day" items="${days}"/><br>
     <form:errors path="day"/>
-    Godzina:<form:select path="hour" items="${hours}"/><br>
+    Godzina:<form:select class="form-control selectpicker" path="hour" items="${hours}"/><br>
     <form:errors path="hour"/>
 
-Technika:<form:select path="technique" items="${techniques}" itemLabel="techniqueName" itemValue="id"/><br>
+Technika:<form:select class="form-control selectpicker" path="technique" items="${techniques}" itemLabel="techniqueName" itemValue="id"/><br>
 <form:errors path="technique"/><br>
-Wybierz Instruktorów:<br>
+
+
+    Wybierz Instruktorów:<br>
     <form:checkboxes path="users" items="${teachers}" itemLabel="fullName" itemValue="id"/><br>
 Wybierz Kursantów:<br>
     <form:checkboxes path="users" items="${users}" itemValue="id" itemLabel="fullName"/><br>
-    <input type="submit" value="Zapisz">
+    <input class="btn btn-primary" type="submit" value="Zapisz">
 </form:form>
 <jsp:include page="/WEB-INF/views/fragments/footer.jsp"/>
 </body>

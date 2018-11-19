@@ -15,6 +15,7 @@
 <jsp:include page="/WEB-INF/views/fragments/menu.jsp"/>
 
 
+
 <jsp:include page="/WEB-INF/views/fragments/footer.jsp"/>
 </body>
 </html>

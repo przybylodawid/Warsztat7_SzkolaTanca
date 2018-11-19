@@ -6,10 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import pl.coderslab.Helper;
 import pl.coderslab.dto.LoginDto;
 import pl.coderslab.dto.RegisterDto;
 import pl.coderslab.model.Role;
@@ -18,6 +16,7 @@ import pl.coderslab.repositories.RoleRepository;
 import pl.coderslab.repositories.UserRepository;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -33,19 +32,19 @@ public class HomeController {
     private RoleRepository roleRepository;
 
     @GetMapping("/OK")
-    public String showOK(){
+    public String showOK() {
         return "OK";
     }
 
     @GetMapping("/register")
-    public String showRegistrationForm(Model model){
+    public String showRegistrationForm(Model model) {
         model.addAttribute("registerDto", new RegisterDto());
         return "forms/register";
     }
 
 
     @PostMapping("/register")
-    public String saveUserFromRegistrationForm(@Valid RegisterDto registerDto, BindingResult bindingResult){
+    public String saveUserFromRegistrationForm(@Valid RegisterDto registerDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "forms/register";
         }
@@ -56,7 +55,7 @@ public class HomeController {
             bindingResult.addError(new FieldError("registerDto", "password2", "Haslo nie jest jednakowe"));
             return "forms/register";
         }
-        if (userRepository.findUserByEmail(registerDto.getEmail())!=null){
+        if (userRepository.findUserByEmail(registerDto.getEmail()) != null) {
             bindingResult.addError(new FieldError("registerDto", "email", "Email juz istnieje w bazie"));
             return "forms/register";
         }
@@ -79,15 +78,15 @@ public class HomeController {
     }
 
     @GetMapping("/login")
-    public String showLoginForm(Model model){
+    public String showLoginForm(Model model) {
         model.addAttribute("loginDto", new LoginDto());
         return "forms/login";
     }
 
     @PostMapping("/login")
-    public String postLogin(@Valid LoginDto loginDto, HttpServletRequest request, BindingResult bindingResult){
+    public String postLogin(@Valid LoginDto loginDto, HttpServletRequest request, BindingResult bindingResult) {
         User user = userRepository.findUserByEmail(loginDto.getEmail());
-        if (user == null){
+        if (user == null) {
             bindingResult.addError(new FieldError("loginDto", "email", "Nie ma takiego usera w bazie danych"));
             return "forms/login";
 
@@ -99,15 +98,43 @@ public class HomeController {
         if (checkpw) {
             request.getSession(true).setAttribute("user", user);
             return "redirect:/user/home";
-        }else {
+        } else {
             bindingResult.addError(new FieldError("loginDto", "email", "Błędny Email lub hasło"));
             bindingResult.addError(new FieldError("loginDto", "password", "Błędny Email lub hasło"));
 
             return "forms/login";
         }
-
     }
 
+    @RequestMapping("/logout")
+    public String logout(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        session.invalidate();
+
+        return "redirect:/login";
+    }
+
+    @RequestMapping("/admin/2learn")
+    public String toLearn() {
+        return "learn";
+    }
+
+    @RequestMapping("/admin/2do")
+    public String toDo() {
+        return "todo";
+    }
+
+
+    @ModelAttribute("user")
+    public User getUser(HttpServletRequest request) {
+        return Helper.getUserFromSession(request);
+    }
+
+    @ModelAttribute("isAdmin")
+    public boolean checkIfAdmin(HttpServletRequest request){
+        boolean isAdmin = Helper.checkIfAdmin(request);
+        return isAdmin;
+    }
 
 
 }

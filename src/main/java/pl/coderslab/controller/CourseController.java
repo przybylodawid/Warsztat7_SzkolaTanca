@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import pl.coderslab.Helper;
 import pl.coderslab.dto.CourseDto;
 import pl.coderslab.dto.UserDto;
 import pl.coderslab.model.Course;
@@ -14,6 +15,7 @@ import pl.coderslab.repositories.CourseRepository;
 import pl.coderslab.repositories.TechniqueRepository;
 import pl.coderslab.repositories.UserRepository;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.sql.Time;
 import java.time.LocalTime;
@@ -133,4 +135,13 @@ public class CourseController {
         return users;
     }
 
+    @ModelAttribute("user")
+    public User getUser(HttpServletRequest request){
+        return Helper.getUserFromSession(request);
+    }
+
+    @ModelAttribute("isAdmin")
+    public boolean checkIfAdmin(HttpServletRequest request){
+        return Helper.checkIfAdmin(request);
+    }
 }

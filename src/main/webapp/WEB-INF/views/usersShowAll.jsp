@@ -10,18 +10,19 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/views/fragments/header.jsp"/>
-    <title>All Users</title>
+    <title>Lista uzytkownikow</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/fragments/menu.jsp"/>
-<h1>All Users</h1>
+<h2>Lista uzytkownikow</h2>
 
 <c:forEach var="user" items="${users}">
-   <a href="/admin/users/edit/${user.id}"> ${user.email} - ${user.firstName} ${user.lastName} </a> ${user.tokens}
-    <a href="/admin/users/substracttokens/${user.id}/1">-1</a>
-    <a href="/admin/users/addtokens/${user.id}/1">+1</a>
-    <a href="/admin/users/addtokens/${user.id}/4">+4</a>
-    <a href="/admin/users/addtokens/${user.id}/8">+8</a>
+   <a class="btn btn-primary btn-sm" href="/admin/users/edit/${user.id}"> ${user.email} - ${user.firstName} ${user.lastName} </a>
+    <a href="/admin/users/substracttokens/${user.id}/1"><i class="material-icons">remove_circle</i></a>
+    ${user.tokens}
+    <a href="/admin/users/addtokens/${user.id}/1"><i class="material-icons">add_circle</i></a>
+    <a href="/admin/users/addtokens/${user.id}/4"><i class="material-icons">filter_4</i></a>
+    <a href="/admin/users/addtokens/${user.id}/8"><i class="material-icons">filter_8</i></a>
 
     <br>
 </c:forEach>

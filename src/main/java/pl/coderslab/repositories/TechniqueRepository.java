@@ -10,6 +10,8 @@ import java.util.Set;
 
 public interface TechniqueRepository extends JpaRepository<Technique, Long> {
 
+    // Returns Set of Users with Specific Role (admin, teacher, user)
+
     @Query("SELECT u FROM User u JOIN u.roles r WHERE r.roleName=:rolename")
     Set<User> findUserByRoleName(@Param("rolename") String roleName);
 

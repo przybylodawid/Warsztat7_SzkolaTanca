@@ -10,21 +10,24 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/views/fragments/header.jsp"/>
-    <title>Title</title>
+    <title>Edycja Techniki</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/fragments/menu.jsp"/>
-<h1> Technique Edit </h1>
+<h1> Edycja Techniki </h1>
 <form:form action="" method="post"
            modelAttribute="technique"><br>
-    Edytuj nazwę: <br>
-    <form:input path="techniqueName" /><br>
-    <form:errors path="techniqueName"/><br>
+        <div class="form-group">
+        <label >Edytuj nazwe</label>
+        <form:input path="techniqueName" class="form-control" id="exampleInputEmail1"/>
+        <form:errors path="techniqueName"/>
+        </div>
 
-    <input type="submit" value="Zapisz Zmiany"><br>
+
+    <input class="btn btn-primary" type="submit" value="Zapisz Zmiany"><br>
 </form:form>
 
-<a href="/admin/techniques/delete/${technique.id}">Usuń technikę ${technique.techniqueName}</a>
+<a class="badge badge-danger" href="/admin/techniques/delete/${technique.id}">Usuń ${technique.techniqueName}</a>
 
 <jsp:include page="/WEB-INF/views/fragments/footer.jsp"/>
 </body>

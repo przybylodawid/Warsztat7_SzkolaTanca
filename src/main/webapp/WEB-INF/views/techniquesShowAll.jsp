@@ -10,15 +10,15 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/views/fragments/header.jsp"/>
-    <title>Title</title>
+    <title>Lista Technik tanecznych</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/fragments/menu.jsp"/>
-<h1> Show All techniques</h1>
+<h3> Show All techniques</h3>
 
 
 <c:forEach var="technique" items="${techniques}">
-    <a href="/admin/techniques/edit/${technique.id}" >${technique.techniqueName}</a><br>
+    <a class="btn btn-primary btn-sm" href="/admin/techniques/edit/${technique.id}">${technique.techniqueName}</a><br>
 
 </c:forEach>
 <jsp:include page="/WEB-INF/views/fragments/footer.jsp"/>

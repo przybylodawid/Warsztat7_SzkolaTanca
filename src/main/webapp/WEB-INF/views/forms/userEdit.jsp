@@ -10,31 +10,43 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/views/fragments/header.jsp"/>
-    <title>Title</title>
+    <title>Edycja Usera</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/fragments/menu.jsp"/>
-<h1>User Edit:</h1>
+<h2>Edycja Usera:</h2>
 
 <form:form action="" method="post"
            modelAttribute="user"><br>
-    Imię: <br>
-    <form:input path="firstName" /><br>
-    <form:errors path="firstName"/><br>
-    Nazwisko: <br>
-    <form:input path="lastName" /><br>
-    <form:errors path="lastName"/><br>
-    Email: <br>
-    <form:input path="email" /><br>
-    <form:errors path="email"/><br>
-    Opis dodatkowy: <br>
-    <form:textarea path="note" /><br>
-    <form:errors path="note"/><br>
-    <form:hidden path="password" readonly="true" /><br>
-    <form:errors path="password"/><br>
-    Tokeny:<br>
-    <form:input path="tokens" readonly="true"/><br>
+    <div class="form-group">
+        <label >Imie:</label>
+        <form:input class="form-control" path="firstName" />
+        <form:errors path="firstName"/>
+    </div>
+
+    <div class="form-group">
+        <label >Nazwisko:</label>
+        <form:input class="form-control" path="lastName" />
+        <form:errors path="lastName"/>
+    </div>
+    <div class="form-group">
+        <label >Email:</label>
+        <form:input class="form-control" path="email" />
+        <form:errors path="email"/>
+    </div>
+    <div class="form-group">
+        <label >Opis Dodatkowy:</label>
+        <form:textarea class="form-control" path="note" />
+        <form:errors path="note"/>
+    </div>
+
+    <form:hidden path="password" readonly="true" />
+    <form:errors path="password"/>
+<div class="form-group">
+    <label >Tokeny:</label>
+    <form:input class="form-control" path="tokens" readonly="true"/><br>
     <form:errors path="tokens"/><br>
+</div>
     Wybierz Role:<br>
     <form:checkboxes path="roles" items="${roles}"
                      itemValue="id" itemLabel="roleName"/><br>
@@ -45,10 +57,10 @@
     <form:errors path="techniques"/><br>
     <br>
 
-    <input type="submit" value="Zapisz">
+    <input class="btn btn-primary" type="submit" value="Zapisz">
 </form:form>
-<a href="/admin/users/delete/${user.id}">
-Usuń usera ${user.firstName} ${user.lastName}
+<a class="badge badge-danger" href="/admin/users/delete/${user.id}">
+Usuń ${user.firstName} ${user.lastName}
 </a>
 <jsp:include page="/WEB-INF/views/fragments/footer.jsp"/>
 </body>

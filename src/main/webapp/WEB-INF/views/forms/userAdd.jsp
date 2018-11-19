@@ -17,21 +17,39 @@
 <h1>User Add</h1>
 <form:form action="" method="post"
            modelAttribute="userDto"><br>
-    Imię: <br>
-    <form:input path="firstName" /><br>
-    <form:errors path="firstName"/><br>
-    Nazwisko: <br>
-    <form:input path="lastName" /><br>
-    <form:errors path="lastName"/><br>
-    Email: <br>
-    <form:input path="email" /><br>
-    <form:errors path="email"/><br>
-    Opis dodatkowy: <br>
-    <form:textarea path="note" /><br>
-    <form:errors path="note"/><br>
-    Hasło: <br>
-    <form:input path="password" /><br>
-    <form:errors path="password"/><br>
+
+
+    <div class="form-group">
+        <label >Imie:</label>
+        <form:input class="form-control" path="firstName" />
+        <form:errors path="firstName"/>
+    </div>
+
+    <div class="form-group">
+        <label >Nazwisko:</label>
+        <form:input class="form-control" path="lastName" />
+        <form:errors path="lastName"/>
+    </div>
+    <div class="form-group">
+        <label >Email:</label>
+        <form:input class="form-control" path="email" />
+        <form:errors path="email"/>
+    </div>
+    <div class="form-group">
+        <label >Opis Dodatkowy:</label>
+        <form:textarea class="form-control" path="note" />
+        <form:errors path="note"/>
+    </div>
+    <div class="form-group">
+    <label >Haslo:</label>
+    <form:input class="form-control" path="password" />
+    <form:errors path="password"/>
+    </div>
+    <div class="form-group">
+        <label >Tokeny:</label>
+        <form:input class="form-control" path="tokens"/><br>
+        <form:errors path="tokens"/><br>
+    </div>
     Wybierz Role:<br>
     <form:checkboxes path="roles" items="${roles}"
                      itemValue="id" itemLabel="roleName"/><br>
@@ -42,7 +60,7 @@
     <form:errors path="techniques"/><br>
     <br>
 
-    <input type="submit" value="Dodaj">
+    <input class="btn btn-primary" type="submit" value="Zapisz">
 </form:form>
 
 <jsp:include page="/WEB-INF/views/fragments/footer.jsp"/>

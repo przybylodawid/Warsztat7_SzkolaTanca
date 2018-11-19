@@ -14,22 +14,90 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/fragments/menu.jsp"/>
-<h1>Register here</h1>
-<form:form method="post" modelAttribute="registerDto">
-    <br>
-    Email:<br><form:input path="email" /><br>
-    <form:errors path="email"/><br>
-    Hasło:<br><form:password path="password" /><br>
-    <form:errors path="password"/><br>
-    Hasło 2:<br><form:password path="password2" /><br>
-    <form:errors path="password2"/><br>
-    Imię:<br><form:input path="firstName" /><br>
-    <form:errors path="firstName"/><br>
-    Nazwisko:<br><form:input path="lastName" /><br>
-    <form:errors path="lastName"/><br>
+<div class="page-header header-filter" style="background-image: url('/splash.jpg'); background-size: cover; background-position: top center;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+                <div class="card card-login">
+                    <form:form class="form" method="post" modelAttribute="registerDto">
+                        <div class="card-header card-header-primary text-center">
+                            <h4 class="card-title">Rejestracja</h4>
+                            <div class="social-line">
+                                <a href="#pablo" class="btn btn-just-icon btn-link">
+                                    <i class="fa fa-facebook-square"></i>
+                                </a>
+                                <a href="#pablo" class="btn btn-just-icon btn-link">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a href="#pablo" class="btn btn-just-icon btn-link">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="description text-center">Albo Klasycznie</p>
+                        <div class="card-body">
 
-    <input type="submit" value="Rejestracja">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">mail</i>
+                    </span>
+                                </div>
+                                <form:input path="email" type="email" class="form-control" placeholder="Email..."/><br>
+                                <form:errors path="email"/>
+
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">lock_outline</i>
+                    </span>
+                                </div>
+                                <form:password path="password" class="form-control" placeholder="Haslo..."/><br>
+                                <form:errors path="password"/>
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">lock_outline</i>
+                    </span>
+                                </div>
+                                <form:password path="password2" class="form-control" placeholder="Powtorz haslo..."/><br>
+                                <form:errors path="password2"/>
+
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">face</i>
+                    </span>
+                                </div>
+                                <form:input path="firstName" class="form-control" placeholder="Imie..."/><br>
+                                <form:errors path="firstName"/>
+
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">face</i>
+                    </span>
+                                </div>
+                                <form:input path="lastName" class="form-control" placeholder="Nazwisko..."/><br>
+                                <form:errors path="lastName"/>
+
+                            </div>
+                        </div>
+                        <div class="footer text-center">
+                            <input type="submit" class="btn btn-primary btn-link btn-wd btn-lg" value="Rejestracja">
+                                                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </form:form>
+
 <jsp:include page="/WEB-INF/views/fragments/footer.jsp"/>
 </body>
 </html>

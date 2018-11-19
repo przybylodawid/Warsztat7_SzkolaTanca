@@ -10,8 +10,8 @@
 <head>
     <title>Szkola Tańca</title>
 </head>
-<body>
-<img src="background.jpg">
+<body><a href="/user/all">
+<img src="background.jpg"></a>
 
 </body>
 </html>
