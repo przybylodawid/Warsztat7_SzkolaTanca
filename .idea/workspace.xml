@@ -7,7 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d120c2f0-a57a-4456-8f1a-ab2895bd344e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -149,7 +149,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/coderslab/AppConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
+            <state relative-caret-position="837">
               <caret line="57" column="50" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -320,7 +320,7 @@
       <path value="$PROJECT_DIR$/src/main/webapp/kit/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="61" />
     <option name="y" value="25" />
     <option name="width" value="1305" />
@@ -532,12 +532,12 @@
       <workItem from="1542626798030" duration="661000" />
       <workItem from="1542798639680" duration="15000" />
       <workItem from="1543246302837" duration="2178000" />
-      <workItem from="1543585649975" duration="840000" />
+      <workItem from="1543585649975" duration="1627000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98215000" />
+    <option name="totallyTimeSpent" value="99002000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -549,7 +549,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="61" y="25" width="3379" height="1415" extended-state="7" />
+    <frame x="61" y="25" width="3379" height="1415" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0810081" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -562,7 +563,7 @@
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34241244" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.34241244" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.34449762" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -978,7 +979,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/coderslab/AppConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
+        <state relative-caret-position="837">
           <caret line="57" column="50" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
